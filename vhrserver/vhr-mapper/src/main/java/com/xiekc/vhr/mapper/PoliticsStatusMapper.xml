@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiekc.vhr.mapper.PoliticsStatusMapper">
+
+    <select id="getPoliticsStatus" resultType="com.xiekc.vhr.bean.PoliticsStatus">
+        select id,name from politicsstatus
+    </select>
+    <select id="getNations" resultType="com.xiekc.vhr.bean.Nation">
+        select id,name from nation;
+    </select>
+    <select id="getMaxWorkId" resultType="java.lang.Long">
+        select max(workID) from employee
+    </select>
+</mapper>
