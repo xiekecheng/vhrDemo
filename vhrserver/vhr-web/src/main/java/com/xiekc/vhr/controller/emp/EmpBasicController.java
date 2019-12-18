@@ -36,11 +36,6 @@ public class EmpBasicController {
     @Autowired
     DepartmentService departmentService;
 
-
-
-
-
-
     @GetMapping("/")
     public RespPageBean getEmployeeByPage(@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "10") Integer size){
         return employeeService.getEmployeeByPage(page,size);

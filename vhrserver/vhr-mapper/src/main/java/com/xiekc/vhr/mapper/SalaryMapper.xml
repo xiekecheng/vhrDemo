@@ -75,4 +75,7 @@
     <insert id="addSidAndEid">
         INSERT INTO empsalary set eid=#{eid},sid=#{sid}
     </insert>
+    <delete id="deleteSalaryById">
+        delete from salary where id = #{id}
+    </delete>
 </mapper>

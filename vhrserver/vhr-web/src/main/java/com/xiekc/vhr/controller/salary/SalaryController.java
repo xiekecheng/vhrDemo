@@ -1,12 +1,12 @@
 package com.xiekc.vhr.controller.salary;
 
+import com.xiekc.vhr.bean.RespBean;
 import com.xiekc.vhr.bean.Salary;
 import com.xiekc.vhr.service.SalaryService;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,8 +27,29 @@ public class SalaryController {
         return salaryService.getAllSalary();
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "test";
+    @PostMapping("/")
+    public RespBean addSalary(@RequestBody Salary salary){
+        if (salaryService.addSalary(salary)==1){
+            return RespBean.ok("添加成功");
+        }
+        return RespBean.ok("添加失败");
     }
+
+    @DeleteMapping("/{id}")
+    public RespBean deleteSalary(@PathVariable int id){
+        if (salaryService.deleteSalaryById(id)==1){
+            return RespBean.ok("删除成功");
+        }
+        return RespBean.ok("添加失败");
+    }
+
+    @PutMapping("/")
+    public RespBean updateSalary(@RequestBody Salary salary){
+        if (salaryService.updateSalary(salary)==1){
+            return RespBean.ok("修改成功");
+        }
+        return RespBean.ok("修改失败");
+    }
+
+
 }

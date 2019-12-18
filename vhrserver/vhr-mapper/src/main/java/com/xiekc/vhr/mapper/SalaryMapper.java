@@ -20,4 +20,6 @@ public interface SalaryMapper {
     int deleteSalaryByEid(@Param("eid") Long eid);
 
     int addSidAndEid(@Param("sid") Integer sid, @Param("eid") Long eid);
+
+    int deleteSalaryById(int id);
 }
